@@ -10,7 +10,7 @@ order by 2, 3 asc
 limit 10
 ```
 
-![us-cities](/Users/ian/Downloads/us-cities.png)
+![us-cities](/assets/us-cities.png)
 
 We only need the city and state combination but we'll include a count of the matching pairs to see if there are duplicates.
 
@@ -29,7 +29,7 @@ order by
 
 To guard against any mismatches `upper()` and `trim()` are used to clean the values from any extra whitespace and make sure they are all capitalised. This is particularly important if you think you'll later be joining on these values.
 
-<img src="/Users/ian/Code/github/ianyoung/corise-advanced-sql/assets/us-cities-count.png" alt="us-cities-count" style="zoom:50%;" />
+<img src="/assets/us-cities-count.png" alt="us-cities-count" style="zoom:50%;" />
 
 From here we can see that the count is greater than 1 for a number of city/state pairs. This should be a 1 to 1 match. 
 
@@ -46,7 +46,7 @@ from
     vk_data.resources.us_cities
 ```
 
-![us-cities-rank](/Users/ian/Code/github/ianyoung/corise-advanced-sql/assets/us-cities-rank.png)
+![us-cities-rank](/assets/us-cities-rank.png)
 
 The final part is to make sure we only return the first value where there are multiple rankings. A `where` statement would not work on the `rank` column because the query is still processing so we'd either need to pull it out to a CTE and select only the row with `rank = 1`:
 
@@ -79,7 +79,7 @@ from
 qualify row_number() over (partition by upper(city_name), upper(state_abbr) order by 1) = 1
 ```
 
-![us-cities-ranked-by-1](/Users/ian/Code/github/ianyoung/corise-advanced-sql/assets/us-cities-ranked-by-1.png)
+![us-cities-ranked-by-1](/assets/us-cities-ranked-by-1.png)
 
 The results set is now trimmed, cleaned, and only returns a single value for each city/state pair.
 
