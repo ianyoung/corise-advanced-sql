@@ -95,6 +95,8 @@ left join vk_data.resources.us_cities as c1 on
 
 ### 2.2 Return the data for the customer and the supplier rated as the closest. Sorted by last name and first name
 
+Full query:
+
 ```sql
 with cities as (
     -- remove duplicate city and state cominbations
@@ -178,7 +180,7 @@ select * from final_result
 - The query in full broken up into subqueries.
 - The suppliers table is cross joined to the customers table to get all suppliers for each customer.
 - The distance between each supplier and customer is calculated and each combination is ranked from closest to furthest in kilometers.
-- The data is returned for the customer and the supplier rated as the closest.
+- `qualify` is used once again used along with the `row_number()` window function to return only the closest supplier by distance in kilometers.
 - Sorted by customer last name and first name.
 
 *Note that although cross-join is used in this solution with a relative small dataset, in a much larger dataset this may not be feasible.*
