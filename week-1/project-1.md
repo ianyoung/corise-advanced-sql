@@ -2,7 +2,7 @@
 
 Reference ERD:
 
-![virtual-kitchen-erd](/Users/ian/Code/github/ianyoung/corise-advanced-sql/assets/virtual-kitchen-erd.webp)
+![virtual-kitchen-erd](/assets/virtual-kitchen-erd.webp)
 
 **Create a query in Snowflake that returns all customers that can place an order with Virtual Kitchen.**
 
@@ -82,7 +82,7 @@ left join vk_data.resources.us_cities as c1 on
     upper(s1.supplier_state) = c1.state_abbr
 ```
 
-![vk-supplier-location](/Users/ian/Code/github/ianyoung/corise-advanced-sql/assets/vk-supplier-location.png)
+![vk-supplier-location](/assets/vk-supplier-location.png)
 
 **1.4 Return the data for the customer and the supplier rated as the closest. Sorted by last name and first name**
 
@@ -164,7 +164,7 @@ with cities as (
 select * from final_result
 ```
 
-![vk-project1](/Users/ian/Code/github/ianyoung/corise-advanced-sql/assets/vk-project1.png)
+![vk-project1](/assets/vk-project1.png)
 
 - The query in full broken up into subqueries.
 - The suppliers table is cross joined to the customers table to get all suppliers for each customer.
