@@ -16,9 +16,7 @@ We would like the following information:
 
 Create a query to return those customers who are eligible to order and have at least one food preference selected. Include up to three of their food preferences. If the customer has more than three food preferences, then return the first three, sorting in alphabetical order. 
 
-
-
-## Step 2
+## Step 2
 
 Add a column to the query from Step 1 that suggests one recipe that matches food preference #1.  
 
