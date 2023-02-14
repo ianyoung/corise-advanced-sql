@@ -54,13 +54,12 @@ where
     (customer_state = 'TX' and (trim(city_name) ilike '%arlington%') or trim(city_name) ilike '%brownsville%')
 ```
 
-![vk-customers-missing-parsley-1](/Users/ian/code/github/ianyoung/corise-advanced-sql/assets/vk-customers-missing-parsley-1.png)
-
+![vk-customers-missing-parsley-1](/assets/vk-customers-missing-parsley-1.png)
 
 
 ## Evaluation
 
-So the query above identifies the 25 impacted customers and retrieves their relevant attributes so that:
+The query above identifies the 25 impacted customers and retrieves their relevant attributes so that:
 
 1. They may receive a free recipe (if they have one listed in their preferences) or
 2. They may be sent an overnight shipment of fresh parsley from a store in either Gary, IN or Chicago, IL.
@@ -75,7 +74,6 @@ Required information (columns):
 - **Count of food preferences** *(to see if they preferred receipes on record)*
 - **Distance from Chicago store in miles** *(to see which store is closest)*
 - **Distances from Gary store in miles** *(to see which store is closest)*
-
 
 
 ## Observations
@@ -106,7 +104,6 @@ Opionionated preferences on style.
 - The `on` of joins should be on a new line and indented.
 - Line lengths should be kept to under 120 characters.
 - Use `concat` instead of `||` for better readability. (Although `||` is a standard SQL operator)
-
 
 
 ## Solution
@@ -322,8 +319,7 @@ order by customer_name
 
 We still get our 25 results but now the results are ordered by customer name:
 
-![vk-customers-missing-parsley-1](/Users/ian/code/github/ianyoung/corise-advanced-sql/assets/vk-customers-missing-parsley-1.png)
-
+![vk-customers-missing-parsley-1](/assets/vk-customers-missing-parsley-1.png)
 
 
 *Note: It may be somewhat controversial but although I'm definitely no fan of leading commas in `select` statements I do find them useful when constructing multiple CTEs. It's very easy to forget the trailing commas when the `with` statement is out of view and each CTE is separated with line breaks for readability. It also helps having the comma on the same line as the proceeding CTE so they can easily be commented out when testing each individual part.*
