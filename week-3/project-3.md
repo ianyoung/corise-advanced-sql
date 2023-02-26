@@ -18,7 +18,7 @@ Instructions can be [viewed here](/week-3/project-3-instructions.md).
 
 with events as (
 
-	select
+    select
     	event_id,
         session_id,
         event_timestamp,
@@ -31,7 +31,7 @@ with events as (
 
 , grouped_sessions as (
 
-	select
+    select
     	session_id,
         min(event_timestamp) as min_event_timestamp,
         max(event_timestamp) as max_event_timestamp,
@@ -46,7 +46,7 @@ with events as (
 
 , fav_recipe as (
 
-	select
+    select
     	date(event_timestamp) as event_day,
         recipe_id,
         count(*) as total_views
@@ -59,7 +59,7 @@ with events as (
 
 , result as (
 
-	select
+    select
     	date(min_event_timestamp) as event_day,
         count(session_id) as total_sessions,
         round(avg(datediff('sec', min_event_timestamp, max_event_timestamp))) as avg_session_length_sec,
